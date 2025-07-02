@@ -4,13 +4,16 @@ from datetime import datetime
 import psycopg2
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
 
-# Загрузка переменных окружения из .env
-load_dotenv()
-DATABASE_URL = os.getenv("DATABASE_URL")
-ACCOUNT_USERNAME = os.getenv("USERNAME")
-ACCOUNT_PASSWORD = os.getenv("PASSWORD")
+# Получение секретов из Streamlit Community Secrets
+# В Settings вашего приложения на Streamlit Cloud добавьте:
+# [general]
+# DATABASE_URL = "ваш URL подключения к базе"
+# USERNAME = "Info@americanglobalgroup.com"
+# PASSWORD = "Techaggbus3344*"
+DATABASE_URL = st.secrets["DATABASE_URL"]
+ACCOUNT_USERNAME = st.secrets["USERNAME"]
+ACCOUNT_PASSWORD = st.secrets["PASSWORD"]
 
 # Конфигурация страницы
 st.set_page_config(page_title="AGG Bot Analytics", layout="wide")
